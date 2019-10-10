@@ -33,7 +33,7 @@ public class UserServiceImpl implements IUserService {
     @Override
     @Transactional
     public CreateUserResponse createUser(CreateUserRequest request) throws AdException {
-/**校验请求参数*/
+        /**校验请求参数*/
       if (!request.validate()){
         throw new AdException(Constants.ErrorMsg.REQUEST_PARAM_ERROR);
       }
