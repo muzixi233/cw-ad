@@ -16,7 +16,7 @@ spring:
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/imooc_ad_data?autoReconnect=true
     username: root
-    password: Djangobbs
+    password: root
     tomcat:
       max-active: 4
       min-idle: 2
@@ -46,7 +46,7 @@ adconf:
     host: 127.0.0.1
     port: 3306
     username: root
-    password: Djangobbs
+    password: root
     binlogName: binlog.000038
     position: 60451
 

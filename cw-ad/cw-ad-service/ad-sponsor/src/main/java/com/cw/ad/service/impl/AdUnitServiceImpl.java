@@ -17,6 +17,7 @@ import com.cw.ad.entity.unit_condition.CreativeUnit;
 import com.cw.ad.exception.AdException;
 import com.cw.ad.service.IAdUnitService;
 import com.cw.ad.vo.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -40,7 +41,7 @@ public class AdUnitServiceImpl implements IAdUnitService {
 
     private final CreativeRepository creativeRepository;
     private final CreativeUnitRepository creativeUnitRepository;
-
+    @Autowired
     public AdUnitServiceImpl(AdPlanRepository planRepository,
                              AdUnitRepository unitRepository,
                              AdUnitKeywordRepository unitKeywordRepository, AdUnitItRepository unitItRepository,
