@@ -9,5 +9,9 @@ import com.cw.ad.vo.CreativeResponse;
  * @date 2019/10/14 22:53
  */
 public interface ICreativeService {
+    /**
+     * @param request
+     * @return
+     */
     CreativeResponse createCreative(CreativeRequest request);
 }

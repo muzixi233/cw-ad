@@ -13,6 +13,7 @@ import com.cw.ad.entity.AdUnit;
 import com.cw.ad.entity.unit_condition.AdUnitDistrict;
 import com.cw.ad.entity.unit_condition.AdUnitIt;
 import com.cw.ad.entity.unit_condition.AdUnitKeyword;
+import com.cw.ad.entity.unit_condition.CreativeUnit;
 import com.cw.ad.exception.AdException;
 import com.cw.ad.service.IAdUnitService;
 import com.cw.ad.vo.*;
@@ -151,6 +152,33 @@ public class AdUnitServiceImpl implements IAdUnitService {
                 .collect(Collectors.toList());
 
         return new AdUnitDistrictResponse(ids);
+    }
+
+    @Override
+    public CreativeUnitResponse createCreativeUnit(CreativeUnitRequest request) throws AdException {
+       /**id校验*/
+        List<Long> unitIds = request.getUnitItems().stream()
+                .map(CreativeUnitRequest.CreativeUnitItem::getUnitId)
+                .collect(Collectors.toList());
+        List<Long> creativeIds = request.getUnitItems().stream()
+                .map(CreativeUnitRequest.CreativeUnitItem::getCreativeId)
+                .collect(Collectors.toList());
+
+        if (!(isRelatedUnitExist(unitIds) && isRelatedUnitExist(creativeIds))) {
+            throw new AdException(Constants.ErrorMsg.REQUEST_PARAM_ERROR);
+        }
+
+        List<CreativeUnit> creativeUnits = new ArrayList<>();
+        request.getUnitItems().forEach(i -> creativeUnits.add(
+                new CreativeUnit(i.getCreativeId(), i.getUnitId())
+        ));
+
+        List<Long> ids = creativeUnitRepository.saveAll(creativeUnits)
+                .stream()
+                .map(CreativeUnit::getId)
+                .collect(Collectors.toList());
+
+        return new CreativeUnitResponse(ids);
     }
 
 
