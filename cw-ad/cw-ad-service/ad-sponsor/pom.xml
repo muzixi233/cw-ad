@@ -52,11 +52,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
+
         <!-- MySQL 驱动, 注意, 这个需要与 MySQL 版本对应 -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.12</version>
+            <version>8.0.18</version>
             <scope>runtime</scope>
         </dependency>
         <!-- 通用模块 -->
@@ -71,11 +72,15 @@
             <artifactId>commons-codec</artifactId>
             <version>1.9</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
     </dependencies>
 
     <!--
         SpringBoot的Maven插件, 能够以Maven的方式为应用提供SpringBoot的支持，可以将
-        SpringBoot应用打包为可执行的jar或war文件, 然后以通常的方式运行SpringBoot应用
+          , 然后以通常的方式运行SpringBoot应用
      -->
     <build>
         <plugins>

@@ -1,4 +1,4 @@
-package com.cw.ad.controller;
+package com.cw.ad;
 import	java.sql.Ref;
 
 import com.alibaba.fastjson.JSON;

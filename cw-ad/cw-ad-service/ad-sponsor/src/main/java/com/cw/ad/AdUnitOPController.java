@@ -1,4 +1,4 @@
-package com.cw.ad.controller;
+package com.cw.ad;
 
 import com.alibaba.fastjson.JSON;
 import com.cw.ad.exception.AdException;
